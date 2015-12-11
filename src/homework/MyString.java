@@ -4,38 +4,46 @@ package homework;
  * Created by gavri on 10.12.2015.
  */
 public class MyString {
-    String content = "";
+    char[] content;
 
     //Конструкторы:
-    //1
-    public MyString(char[] array) {
-        for (int i = 0; i < array.length; i++) {
-            content = content + array[i];
-        }
 
+    public MyString(char[] array) {
+        content = array;
     }
 
-    // 2
+
     public MyString() {
         return;
-    }
-
-    //2
-    public MyString(String content) {
-        this.content = content;
     }
 
 
     // Методы
 
     public void showContent() {
-        System.out.println(content);
+        for (int i = 0; i < content.length; i++) {
+            System.out.print(content[i]);
+        }
     }
 
-    public void concatenation(String newStringEnding) {
-        content = content + newStringEnding;
-    }
+    public MyString concatenate(char[] newStringEnding) {
+        char[] newcontent = new char[content.length + newStringEnding.length];
+        int i = 0;
+        int length = content.length;
+            while (i < content.length) {
+                newcontent[i] = content[i];
+                i++;
 
+            }
+            while (i < newcontent.length) {
+                newcontent[i] = newStringEnding[i-length];
+                i++;
+            }
+
+
+        return  new MyString(newcontent);
+    }
+/*
 
     public void toLowerCase() {
         content = content.toLowerCase();
@@ -53,12 +61,12 @@ public class MyString {
 
             for (int i = 0; i < content.length(); i++) {
 
-                if (textArray[0] == contentArray[i]){
+                if (textArray[0] == contentArray[i]) {
 
-                    for (int j = 0; j < textArray.length && textArray[j] == contentArray[i+j];j++ )
-                    {
-                        if(j == textArray.length-1){
-                            System.out.println ("From - " + i + " to - "+ (i+j));}
+                    for (int j = 0; j < textArray.length && textArray[j] == contentArray[i + j]; j++) {
+                        if (j == textArray.length - 1) {
+                            System.out.println("From - " + i + " to - " + (i + j));
+                        }
 
                     }
                 }
@@ -66,5 +74,5 @@ public class MyString {
             }
         }
 
-    }
+    }*/
 }
