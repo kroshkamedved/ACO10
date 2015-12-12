@@ -16,14 +16,31 @@ public class Calc {
     double difference;
 
 
-public  double adding(){
-    Scanner sc = new Scanner(System.in);
+public void action(){
+
     System.out.println("Enter first number");
+    Scanner sc = new Scanner(System.in);
     double firstNumber = sc.nextDouble();
     System.out.println("Enter second number");
     double secondNumber = sc.nextDouble();
-    sum = firstNumber + secondNumber;
-    return sum;
+    System.out.println("Enter action symbol");
+    char action =sc.next().charAt(0);
+    if (action == '/'){
+        quotient = firstNumber / secondNumber;
+        System.out.println(firstNumber / secondNumber );
+    }
+    if (action == '+'){
+        sum = firstNumber + secondNumber;
+        System.out.println(firstNumber + secondNumber );
+    }
+    if (action == '-'){
+        difference = firstNumber - secondNumber;
+        System.out.println(firstNumber - secondNumber );
+    }
+    if (action == '*'){
+        product = firstNumber * secondNumber;
+        System.out.println(firstNumber * secondNumber );
+    }
 }
 
 
