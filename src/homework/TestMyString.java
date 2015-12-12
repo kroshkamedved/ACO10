@@ -36,7 +36,7 @@ public class TestMyString {
         MyString tryNewMeth2 = tryNewMeth.deleteSpace();
             tryNewMeth2.showContent();
 
-
+        tryNewMeth.compare(tryNewMeth2);
     }
 
 

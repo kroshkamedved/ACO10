@@ -121,14 +121,14 @@ public class MyString {
             if (content[i] == ' ') {
                 j++;
                 i++;
-            }else{
+            } else {
                 i++;
             }
         }
 
         char[] array = new char[content.length - j];
         j = 0;
-        i=0;
+        i = 0;
 
 
         while (i < content.length) {
@@ -147,5 +147,20 @@ public class MyString {
 
     }
 
-
+    public void compare(MyString anyString) {
+        boolean result = false;
+        for (int i = 0; i < content.length; i++) {
+            if (content[i] == anyString.content[i]) {
+                result = true;
+                continue;
+            } else {
+                result = false;
+                System.out.println("Your Strings are different");
+                break;
+            }
+                   }
+                if (result == true){
+            System.out.println("Your Strings are the same");
+        }
+    }
 }
