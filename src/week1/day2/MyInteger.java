@@ -12,6 +12,8 @@ public class MyInteger {
        int sum = num + number;
         return sum;
     }
-
+    public boolean equals(MyInteger o){
+        return false;
+    }
 
 }

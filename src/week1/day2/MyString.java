@@ -4,6 +4,9 @@ package week1.day2;
 public class MyString {
     char[] letters;
 
+    public MyString() {
+    }
+
     public MyString(String word) {
         this.letters = word.toCharArray();
     }
@@ -21,6 +24,14 @@ public class MyString {
             }
         }
         return index;
+    }
+
+    public MyString concat(MyString str2){
+        MyString newString = new MyString();
+        newString.letters = new char[this.letters.length + str2.letters.length];
+        //logic of copy
+        return newString;
+
     }
 
 }
