@@ -11,5 +11,6 @@ public class TestCat {
 
         StaticCat cat3 = new StaticCat("Vas'ka3");
         System.out.println(StaticCat.id);
+
     }
 }
