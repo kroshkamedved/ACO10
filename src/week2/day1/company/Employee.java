@@ -16,7 +16,7 @@ public class Employee {
     }
     
     public void doCoffee(){
-        System.out.println();
+        System.out.println("Drink coffee");
     }
 
 }
