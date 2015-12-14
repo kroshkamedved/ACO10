@@ -18,6 +18,7 @@ public class TestArrayList {
         numbers.set(1, 14);
         System.out.println(numbers.get(1));
         numbers.remove(new Integer(14));
+        System.out.println("Hello");
 
     }
 }
