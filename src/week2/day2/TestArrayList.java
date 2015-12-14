@@ -1,5 +1,6 @@
 package week2.day2;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 public class TestArrayList {
@@ -17,7 +18,7 @@ public class TestArrayList {
         System.out.println(numbers.get(2));
         numbers.set(1, 14);
         System.out.println(numbers.get(1));
-
+        numbers.remove(new Integer(14));
 
     }
 }
