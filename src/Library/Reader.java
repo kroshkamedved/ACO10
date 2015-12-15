@@ -6,6 +6,4 @@ package Library;
 public class Reader extends Library {
     String name;
     int booksAtHome;
-
-
 }
