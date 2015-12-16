@@ -91,12 +91,12 @@ public class Library {
             for (int i = 0; i < reader.booksAtHome.length; i++) {
                 System.out.print(" " + reader.booksAtHome[i].name);
             }
-        } else{
+        } else {
             System.out.println("You dont have any books");
         }
     }
 
-    public void addToBlckList (Reader reader){
+    public void addToBlckList(Reader reader) {
         readers.add(reader);
         System.out.println(reader.name + "have been added to black list");
     }
@@ -108,9 +108,10 @@ public class Library {
             }
         }
     }
+
     public void showBooksWrittenFrom(int year) {
         for (Book book : books) {
-            if (book.publishedIn >= year ) {
+            if (book.publishedIn >= year) {
                 System.out.print(book.name);
             }
         }

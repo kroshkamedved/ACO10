@@ -8,5 +8,8 @@ import java.util.Scanner;
 public class TestLibrary {
     public static void main(String[] args) {
         Library lib = new Library();
+        Book first = new Book();
+        lib.addBook(first);
+
     }
 }
