@@ -22,7 +22,7 @@ public class Library {
     ArrayList<String> blackList;
     ArrayList<Book> gottenBooks;
 
-    private void showReaders() {
+    public void showReaders() {
         int i = 0;
         System.out.println("");
         for (Reader reader : readers) {
@@ -30,16 +30,16 @@ public class Library {
         }
     }
 
-    private void showBooksInLib() {
+    public void showBooksInLib() {
         int i = 0;
         for (Book book : books) {
             System.out.print(" " + book.name + ";");
         }
     }
 
-    private void addBook(Book newbook) {
+    public void addBook(Book newbook) {
         for (Book book : books) {
-            if (newbook.name == book.name) {
+            if (newbook.name.equals(book.name)) {
                 book.quantity += newbook.quantity;
                 System.out.println("You've increased number of" + newbook.name + "books in library");
                 break;
@@ -50,11 +50,11 @@ public class Library {
         }
     }
 
-    private void addReader(Reader newReader) {
+    public void addReader(Reader newReader) {
         readers.add(newReader);
     }
 
-    private void giveBook(Reader reader, Book someBook) {
+    public void giveBook(Reader reader, Book someBook) {
         if (blackList.contains(reader.name)) {
             System.out.println("You are in a black list");
         } else if (reader.bookQuantity >= 3) {
@@ -85,7 +85,7 @@ public class Library {
         }
     }
 
-    private void showUserBooks(Reader reader) {
+    public void showUserBooks(Reader reader) {
         if (reader.bookQuantity != 0) {
             System.out.println("User books are :");
             for (int i = 0; i < reader.booksAtHome.length; i++) {
@@ -96,14 +96,14 @@ public class Library {
         }
     }
 
-    private void addToBlckList (Reader reader){
+    public void addToBlckList (Reader reader){
         readers.add(reader);
         System.out.println(reader.name + "have been added to black list");
     }
 
     public void showAuthorBooks(String author) {
         for (Book book : books) {
-            if (book.author == author) {
+            if (book.author.equals(author)) {
                 System.out.print(book.name);
             }
         }
