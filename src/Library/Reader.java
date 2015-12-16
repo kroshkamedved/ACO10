@@ -5,5 +5,6 @@ package Library;
  */
 public class Reader extends Library {
     String name;
-    int booksAtHome;
+    int bookQuantity = 0;
+    Book[] booksAtHome = new Book[3];
 }
