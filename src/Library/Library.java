@@ -38,6 +38,7 @@ public class Library {
     public void addBook(Book... newBooks) {
         for (Book newBook : newBooks) {
             this.books.add(newBook);
+            newBook.setBookInLibarary(true);
         }
     }
 
@@ -53,9 +54,8 @@ public class Library {
             return false;
         } else if (!reader.isCanGetbook()) {
             return false;
-        } else if (books.contains(someBook)) {
+        } else if (books.contains(someBook)&& someBook.isBookInLibarary()) {
             reader.takeBook(someBook);
-            someBook.setBookInLibarary(false);
             return true;
         }
         return false;

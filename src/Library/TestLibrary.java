@@ -34,6 +34,13 @@ public class TestLibrary {
         lib.addBook(book,book1,book2,book3);
         lib.showBooksInLib();
         lib.showReaders();
+        System.out.println();
+        System.out.println( reader1.takeBook(book));
+        System.out.println( lib.giveBook(reader1,book1));
+        System.out.println(lib.giveBook(reader1,book2));
+        System.out.println(lib.giveBook(reader1,book3));
+        System.out.println(reader1.isCanGetbook());
+        reader1.showReaderBooks();
 
 
 
