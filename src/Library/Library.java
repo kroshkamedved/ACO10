@@ -31,6 +31,7 @@ public class Library {
     public void showBooksInLib() {
         System.out.println("Books present in library:");
         for (Book book : books) {
+            if (book.isBookInLibarary())
             System.out.println(" " + book + ";");
         }
     }
@@ -83,7 +84,8 @@ public class Library {
     public void showAuthorBooks(String author) {
         for (Book book : books) {
             if (book.getAuthor().equals(author)) {
-                System.out.print(book + " ");
+                System.out.print(book);
+                System.out.println();
             }
         }
     }
@@ -91,7 +93,8 @@ public class Library {
     public void showBooksWrittenFrom(int year) {
         for (Book book : books) {
             if (book.getPublishedIn() >= year) {
-                System.out.print(book + " ");
+                System.out.print(book);
+                System.out.println();
             }
         }
     }

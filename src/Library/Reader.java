@@ -22,11 +22,14 @@ public class Reader{
     private static final int limit = 3;
     private boolean inBlackList = false;
     private ArrayList<Book> gottenBooks = new ArrayList<>();
-    private boolean canGetbook = gottenBooks.size()<limit;
 
     public  Reader(String name, int age){
         this.name = name;
         this.age = age;
+    }
+
+    public int gottenBooksSize(){
+        return gottenBooks.size();
     }
 
     public String getName(){
@@ -46,7 +49,7 @@ public class Reader{
     }
 
     public boolean isCanGetbook() {
-        return canGetbook;
+        return gottenBooks.size()<limit;
     }
 
     public void setInBlackList(boolean blockStatus){
@@ -60,7 +63,7 @@ public class Reader{
     }
 
     public boolean takeBook(Book book) {
-        if (!this.canGetbook) return false;
+        if (!(gottenBooks.size()<limit)) return false;
         if (this.inBlackList) return false;
         if (book.isBookInLibarary()) {
             this.gottenBooks.add(book);

@@ -23,7 +23,7 @@ public class TestLibrary {
         Book book = new Book("Belaya Gvaridiya", "Bulgakov", 1988);
         Book book1 = new Book("Dni Turbinuh", "Bulgakov", 1980);
         Book book2 = new Book("Sherlock Holms", "Konan Doyle", 1960);
-        Book book3 = new Book("Unknown", "Brigada", 2000);
+        Book book3 = new Book("Unknown", "Brigada2", 2000);
 
         Reader reader1 = new Reader("Sasha", 25);
         Reader reader2 = new Reader("Vasja", 30);
@@ -35,12 +35,22 @@ public class TestLibrary {
         lib.showBooksInLib();
         lib.showReaders();
         System.out.println();
+        lib.addToBlckList(reader1);
         System.out.println( reader1.takeBook(book));
         System.out.println( lib.giveBook(reader1,book1));
         System.out.println(lib.giveBook(reader1,book2));
         System.out.println(lib.giveBook(reader1,book3));
         System.out.println(reader1.isCanGetbook());
         reader1.showReaderBooks();
+        System.out.println();
+        System.out.println(reader2.takeBook(book1));
+        lib.showAuthorBooks("Bulgakov");
+        lib.showBooksWrittenFrom(1999);
+        reader3.takeBook(book3);
+        lib.showUserBooks(reader1);
+        lib.showBooksInLib();
+
+
 
 
 
