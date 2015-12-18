@@ -69,7 +69,7 @@ public class Book{
 
         if (o == null) return  false;
 
-        if (o.getClass() != this.getClass()) return false;
+        if (!o.getClass().equals(this.getClass())) return false;
 
         Book book = (Book) o;
         if(!this.name.equals(book.name)) return false;
