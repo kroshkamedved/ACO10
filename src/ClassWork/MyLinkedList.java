@@ -67,4 +67,6 @@ public class MyLinkedList {
         size = 0;
         return true;
     }
+
+
 }
