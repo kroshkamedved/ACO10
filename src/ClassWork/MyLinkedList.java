@@ -68,5 +68,17 @@ public class MyLinkedList {
         return true;
     }
 
-
+    public Object[] toArray(){
+        Node iterator = new Node();
+        iterator = head;
+        int i = 1;
+        Object[] array = new Object[size];
+        array[0]=iterator.getNext();
+        while (iterator!=null){
+            array[i] = iterator;
+            i++;
+            iterator = iterator.getNext();
+        }
+        return array;
+    }
 }
