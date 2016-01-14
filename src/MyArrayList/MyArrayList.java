@@ -46,6 +46,20 @@ public class MyArrayList<E> {
         return true;
     }
 
+    public boolean add (int index, E element){
+        if (index < 0 ||index >  size) throw new indexOutOfBoundsExceptionMy("Index out of bounds");
+        if (index == size) return this.add(element);
+        if (size == this.elementData.length) resizeAl();
+        E[] newArray = (E[]) new Object[elementData.length];
+        System.arraycopy(elementData,0,newArray,0,index);
+        newArray[index] = element;
+        System.arraycopy(elementData,index,newArray,(index+1),(size-index));
+        elementData = newArray;
+        size++;
+        return true;
+    }
+
+
     private void resizeAl() {
         E[] newArray = (E[]) new Object[((elementData.length * 3) / 2 + 1)];
         System.arraycopy(elementData, 0, newArray, 0, size);

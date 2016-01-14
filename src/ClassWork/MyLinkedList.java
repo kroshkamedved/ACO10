@@ -62,19 +62,19 @@ public class MyLinkedList {
 
     }
 
-    public boolean clear(){
-        head = tail =null;
+    public boolean clear() {
+        head = tail = null;
         size = 0;
         return true;
     }
 
-    public Object[] toArray(){
+    public Object[] toArray() {
         Node iterator = new Node();
         iterator = head;
         int i = 1;
         Object[] array = new Object[size];
-        array[0]=iterator.getNext();
-        while (iterator!=null){
+        array[0] = iterator.getNext();
+        while (iterator != null) {
             array[i] = iterator;
             i++;
             iterator = iterator.getNext();
