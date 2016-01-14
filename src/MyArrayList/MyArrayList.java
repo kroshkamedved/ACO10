@@ -2,6 +2,24 @@ package MyArrayList;
 
 import java.lang.reflect.Array;
 
+
+/* Write your own ArrayList!
+        First look the structure and methods of Java ArrayList!!!
+
+        implement different constructors
+
+        implement methods:
+
+        * add(Object)
+        * add(index, Object)
+        * get(index)
+        * remove(index)
+        * remove(index, Object)
+        * set(index, Object)
+        * clear()
+        * contains(Object)
+        * size()      */
+
 public class MyArrayList<E> {
     private static final int DEFAULT_CAPACITY = 10;
 
@@ -39,7 +57,7 @@ public class MyArrayList<E> {
     }
 
     public E get(int index) {
-        //todo check index and throw exception; 
+        if (index < 0 ||index >=  size) throw new indexOutOfBoundsExceptionMy("Index out of bounds");
         return elementData[index];
     }
 
