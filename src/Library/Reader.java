@@ -1,5 +1,6 @@
 package Library;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /*
@@ -16,7 +17,7 @@ import java.util.ArrayList;
      9) посмотреть книги конкретного автора
      10) посмотреть новые книги (год издания выше 2013)
  */
-public class Reader{
+public class Reader implements Serializable{
     private String name;
     private int age;
     private static final int limit = 3;

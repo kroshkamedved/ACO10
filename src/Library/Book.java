@@ -1,5 +1,7 @@
 package Library;
 
+import java.io.Serializable;
+
 /*
 Написать программу позволяющую узнать следующую информацию:
      1) посмотреть список читателей
@@ -14,7 +16,7 @@ package Library;
      9) посмотреть книги конкретного автора
      10) посмотреть новые книги (год издания выше 2013)
  */
-public class Book{
+public class Book implements Serializable{
     private String name;
     private String author;
     private int publishedIn;

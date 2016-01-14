@@ -1,5 +1,6 @@
 package Library;
 
+import java.io.*;
 import java.util.Scanner;
 
 /*
@@ -17,7 +18,7 @@ import java.util.Scanner;
      10) посмотреть новые книги (год издания выше 2013)
  */
 public class TestLibrary {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
         Library lib = new Library();
 
         Book book = new Book("Belaya Gvaridiya", "Bulgakov", 1988);
@@ -50,6 +51,15 @@ public class TestLibrary {
         lib.showUserBooks(reader1);
         lib.showBooksInLib();
 
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("lib.txt"));
+
+        oos.writeObject(lib);
+
+        Library lib2 = new Library();
+        ObjectInputStream ois =  new ObjectInputStream(new FileInputStream("lib.txt"));
+        lib2 = (Library)ois.readObject();
+        System.out.println("************************************************************************");
+        lib2.showBooksInLib();
 
 
 

@@ -1,5 +1,6 @@
 package Library;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /*
@@ -17,7 +18,7 @@ import java.util.ArrayList;
      10) посмотреть новые книги (год издания выше 2013)
  */
 
-public class Library {
+public class Library implements Serializable {
     ArrayList<Reader> readers = new ArrayList<>();
     ArrayList<Book> books = new ArrayList<>();
 
