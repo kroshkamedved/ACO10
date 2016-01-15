@@ -14,7 +14,7 @@ import java.lang.reflect.Array;
         * add(index, Object)
         * get(index)
         * remove(index)
-        * remove(index, Object)
+        * remove(Object)
         * set(index, Object)
         * clear()
         * contains(Object)
@@ -46,14 +46,14 @@ public class MyArrayList<E> {
         return true;
     }
 
-    public boolean add (int index, E element){
-        if (index < 0 ||index >  size) throw new indexOutOfBoundsExceptionMy("Index out of bounds");
+    public boolean add(int index, E element) {
+        if (index < 0 || index > size) throw new indexOutOfBoundsExceptionMy("Index out of bounds");
         if (index == size) return this.add(element);
         if (size == this.elementData.length) resizeAl();
         E[] newArray = (E[]) new Object[elementData.length];
-        System.arraycopy(elementData,0,newArray,0,index);
+        System.arraycopy(elementData, 0, newArray, 0, index);
         newArray[index] = element;
-        System.arraycopy(elementData,index,newArray,(index+1),(size-index));
+        System.arraycopy(elementData, index, newArray, (index + 1), (size - index));
         elementData = newArray;
         size++;
         return true;
@@ -71,8 +71,49 @@ public class MyArrayList<E> {
     }
 
     public E get(int index) {
-        if (index < 0 ||index >=  size) throw new indexOutOfBoundsExceptionMy("Index out of bounds");
+        if (index < 0 || index >= size) throw new indexOutOfBoundsExceptionMy("Index out of bounds");
         return elementData[index];
     }
 
+    public E set(int index, E element) {
+        if (index < 0 || index >= size) throw new indexOutOfBoundsExceptionMy("Index out of bounds");
+        E result = elementData[index];
+        elementData[index] = element;
+        return result;
+    }
+
+    public void clear() {
+        if (size == 0) return;
+        E[] newArray = (E[]) new Object[elementData.length];
+        elementData = newArray;
+        size = 0;
+    }
+
+    public E remove(int index) {
+        if (index < 0 || index >= size) throw new indexOutOfBoundsExceptionMy("Index out of bounds");
+        E result = elementData[index];
+        E[] newArray = (E[]) new Object[elementData.length];
+        System.arraycopy(elementData, 0, newArray, 0, index);
+        System.arraycopy(elementData, index + 1, newArray, index, size - index - 1);
+        elementData = newArray;
+        return result;
+    }
+
+    public boolean remove(Object element) {
+        // if (element.getClass() != this.getClass()) return false;
+        if (element == null) return false;
+        for (int i = 0; i <= size; i++) {
+            if (element.equals(elementData[i])) remove(i);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean contains(Object element) {
+        if (element == null) return false;
+        for (int i = 0; i <= size; i++) {
+            if (element.equals(elementData[i])) return true;
+        }
+        return false;
+    }
 }

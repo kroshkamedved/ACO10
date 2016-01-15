@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class testMyArrayLIst {
     public static void main(String[] args) {
-        MyArrayList<Integer> list = new MyArrayList(100);
+        MyArrayList<Integer> list = new MyArrayList();
         ArrayList<Integer> l = new ArrayList<>();
      try {
          /*MyArrayList list2 = new MyArrayList(0);
@@ -34,6 +34,23 @@ public class testMyArrayLIst {
         System.out.println(list.get(12));
         System.out.println(list.size());
         System.out.println(list.get(5));
+
+        list.set(12,888);
+        System.out.println(list.get(12));
+        //list.clear();
+        list.add(0);
+        System.out.println(list.get(0));
+        System.out.println(list.remove(null));
+        System.out.println(list.get(12));
+        System.out.println(list.size());
+        list.add(888);
+        Integer in = 888;
+       // System.out.println(list.remove(in));
+        System.out.println(list.contains(in));
+
+
+
+
 
 
     }
