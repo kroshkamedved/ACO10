@@ -14,8 +14,6 @@ public class testMyArrayLIst {
      }
         System.out.println("*******************************************");
 
-
-
         list.add(15);
         list.add(16);
         list.add(1);
@@ -47,12 +45,9 @@ public class testMyArrayLIst {
         Integer in = 888;
        // System.out.println(list.remove(in));
         System.out.println(list.contains(in));
-
-
-
-
-
-
+        System.out.println(list.get(0));
+        System.out.println(list.remove(0));
+        System.out.println(list.get(0));
     }
 
     }

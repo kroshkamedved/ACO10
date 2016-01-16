@@ -89,6 +89,7 @@ public class MyArrayList<E> {
         size = 0;
     }
 
+
     public E remove(int index) {
         if (index < 0 || index >= size) throw new indexOutOfBoundsExceptionMy("Index out of bounds");
         E result = elementData[index];

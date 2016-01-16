@@ -1,5 +1,8 @@
 package Library;
 
+import sun.misc.IOUtils;
+import sun.nio.ch.IOUtil;
+
 import java.io.*;
 import java.util.Scanner;
 
@@ -60,6 +63,26 @@ public class TestLibrary {
         lib2 = (Library)ois.readObject();
         System.out.println("************************************************************************");
         lib2.showBooksInLib();
+
+
+        BufferedReader br = new BufferedReader(new FileReader("menu.txt"));
+        StringBuffer sb = new StringBuffer();
+        String line = br.readLine();
+
+        while (line != null){
+            sb.append(line);
+            sb.append(System.lineSeparator());
+            line = br.readLine();
+        }
+
+        String allText = sb.toString();
+
+        System.out.println(allText);
+
+        FileInputStream fis = new FileInputStream("menu.txt");
+
+
+
 
 
 
