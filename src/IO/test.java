@@ -21,5 +21,12 @@ public class test {
             os.write(readByte);
             System.out.println(copy.exists());
         }
+
+            RandomAccessFile file1 = new RandomAccessFile("copy.txt","r");
+
+        int readByte2;
+        while ((readByte2 = file1.read())!= -1 ){
+            System.out.println((char)(readByte2));
+        }
     }
 }
