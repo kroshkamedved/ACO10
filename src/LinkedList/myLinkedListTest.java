@@ -1,4 +1,4 @@
-package ClassWork;
+package LinkedList;
 
 /**
  * Created by gavri on 27.12.2015.

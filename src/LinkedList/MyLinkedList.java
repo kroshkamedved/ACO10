@@ -1,7 +1,4 @@
-package ClassWork;
-
-import java.util.Iterator;
-import java.util.List;
+package LinkedList;
 
 /**
  * Created by gavri on 27.12.2015.

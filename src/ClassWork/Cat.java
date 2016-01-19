@@ -1,20 +1,31 @@
 package ClassWork;
 
 /**
- * Created by gavri on 12.12.2015.
+ * Created by gavri on 06.12.2015.
  */
-public class Cat extends Animals {
-    public Cat(String name, int age){
-        super(name,age);
+public class Cat {
+    String name;
+    int age;
+    String kind;
+
+    public Cat(){
+
     }
 
-    public void SayMyau () {
-        System.out.println("Miay");
-
-    }
-    public void SayYourName (){
-        System.out.println("I'm independet, and can say what i want");
+    public  Cat(String name,int age, String kind ) {
+        this.name = name;
+        this.age = age;
+        this.kind = kind;
     }
 
+    public String sayMeow(){
+        return String.format("Hello, my name is \"%s\", I'm %d years old, my kind is %s\n"
+                ,name,age,kind);
 
+    }
+        @Override
+    public  String toString(){
+            return String.format("Hello, my name is \"%s\", I'm %d years old, my kind is %s\n"
+                    ,name,age,kind);
+        }
 }

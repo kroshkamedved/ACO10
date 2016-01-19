@@ -1,4 +1,4 @@
-package ClassWork;
+package LinkedList;
 
 public class Node {
     private Node next;

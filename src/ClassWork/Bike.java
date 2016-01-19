@@ -1,3 +1,5 @@
+package ClassWork;
+
 /**
  * Created by gavri on 06.12.2015.
  */
@@ -16,7 +18,7 @@ public class Bike {
 }
 
     public void sellMoto()  {
-        System.out.printf("Bike for sale:\n " +
+        System.out.printf("ClassWork.Bike for sale:\n " +
                 "bike type %s, colour - %s, engine voluen is %f, date of manufaturing is %d", bikeType, colour,engineVoluem,DataOfManufacturing);
     }
 

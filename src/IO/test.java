@@ -8,9 +8,9 @@ import java.io.*;
 public class test {
     public static void main(String[] args) throws IOException {
         File file = new File("menu.txt");
-        System.out.println(file.exists());
+            System.out.println(file.exists());
         File copy = new File ("copy.txt");
-        System.out.println(copy.exists());
+            System.out.println(copy.exists());
         InputStream is = new FileInputStream(file);
         OutputStream os = new FileOutputStream(copy, true);
 
@@ -26,7 +26,21 @@ public class test {
 
         int readByte2;
         while ((readByte2 = file1.read())!= -1 ){
-            System.out.println((char)(readByte2));
+            System.out.print((char)(readByte2));
         }
+        System.out.println("**********************************************");
+        BufferedReader br = new BufferedReader(new FileReader("menu.txt"));
+        StringBuffer sb = new StringBuffer();
+        String line = br.readLine();
+
+        while (line != null){
+            sb.append(line);
+            sb.append(System.lineSeparator());
+            line = br.readLine();
+        }
+
+        String allText = sb.toString();
+
+        System.out.println(allText);
     }
 }
