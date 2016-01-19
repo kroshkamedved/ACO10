@@ -16,6 +16,7 @@ public class BinarySearchTree<T> implements ITree<T> {
         Node<T> iterator = root;
         if (iterator == null) {
             root = new Node<>(t);
+            ++size;
             return true;
         }
         Comparable insertion = (Comparable) t;
@@ -25,11 +26,13 @@ public class BinarySearchTree<T> implements ITree<T> {
             if (iterator.leftChild == null) {
                 iterator.leftChild = new Node<>(t);
                 iterator.leftChild.parent = iterator;
+                ++size;
                 return true;
             }
         } else {
             iterator.rightChild = new Node<>(t);
             iterator.rightChild.parent = iterator;
+            ++size;
             return true;
         }
         while (iterator != null) {
@@ -53,6 +56,7 @@ public class BinarySearchTree<T> implements ITree<T> {
             parent.leftChild = new Node<>(t);
             parent.leftChild.parent = parent;
         }
+        ++size;
         return true;
     }
 
@@ -73,6 +77,7 @@ public class BinarySearchTree<T> implements ITree<T> {
 
     @Override
     public T findMin() {
+
         return null;
     }
 

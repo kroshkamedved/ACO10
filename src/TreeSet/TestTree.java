@@ -11,6 +11,7 @@ public class TestTree {
         tree.add(20);
         tree.add(5);
         tree.add(7);
+        System.out.println(tree.size());
 
 
     }
