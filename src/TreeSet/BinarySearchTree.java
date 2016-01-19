@@ -77,25 +77,31 @@ public class BinarySearchTree<T> implements ITree<T> {
 
     @Override
     public T findMin() {
-
-        return null;
+        Node<T> iter = root;
+        while (iter.leftChild!=null) iter = iter.leftChild;
+        return iter.value;
     }
 
     @Override
     public T findMax() {
-        return null;
+        Node<T> iter = root;
+        while (iter.rightChild!=null) iter = iter.rightChild;
+        return iter.value;
     }
 
     @Override
     public void clear() {
+        size  = 0;
+        root = null;
 
     }
 
 
     @Override
     public Iterator<T> iterator() {
-        return null;
+       return null;
     }
+
 
     void findPosition() {
 

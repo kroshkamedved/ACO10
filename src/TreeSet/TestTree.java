@@ -11,8 +11,13 @@ public class TestTree {
         tree.add(20);
         tree.add(5);
         tree.add(7);
+        tree.add(0);
         System.out.println(tree.size());
-
+        System.out.println(tree.findMin());
+        System.out.println(tree.findMax());
+        tree.clear();
+        tree.add(77);
+        System.out.println(tree.size());
 
     }
 }
