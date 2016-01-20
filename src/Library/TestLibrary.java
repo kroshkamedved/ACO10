@@ -51,18 +51,20 @@ public class TestLibrary {
         lib.showAuthorBooks("Bulgakov");
         lib.showBooksWrittenFrom(1999);
         reader3.takeBook(book3);
-        lib.showUserBooks(reader1);
+        lib.showUserBooks();
         lib.showBooksInLib();
 
         ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("lib.txt"));
 
         oos.writeObject(lib);
+        oos.close();
 
         Library lib2 = new Library();
         ObjectInputStream ois =  new ObjectInputStream(new FileInputStream("lib.txt"));
         lib2 = (Library)ois.readObject();
         System.out.println("************************************************************************");
         lib2.showBooksInLib();
+        ois.close();
 
 
         BufferedReader br = new BufferedReader(new FileReader("menu.txt"));
@@ -78,6 +80,11 @@ public class TestLibrary {
         String allText = sb.toString();
 
         System.out.println(allText);
+
+        System.out.println("****************************NNNNNNNNNN**************************");
+
+        Menu menu = new Menu();
+        menu.showMenu();
 
 
 

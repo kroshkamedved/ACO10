@@ -6,19 +6,33 @@ import java.io.*;
  * Created by gavri on 19.01.2016.
  */
 public class Menu {
-    InputStreamReader is;
-    public Menu() throws FileNotFoundException {
-        is = new InputStreamReader(new FileInputStream("menu.txt"));
+    public Menu() {
+
     }
 
-    public void showMenu() throws IOException {
-        BufferedReader br = new BufferedReader(is);
-        String line = br.readLine();
-        int bite = 0;
-        while ( bite!= -1 ){
-            bite = br.read();
-            System.out.println(line);
-            line = br.readLine();
+    public void showMenu()  {
+
+        try {
+            InputStreamReader is = new InputStreamReader(new FileInputStream("menu.txt"));
+            StringBuffer  sb = new StringBuffer();
+            BufferedReader br = new BufferedReader(is);
+            String line = null;
+
+            try {
+                while (br.read() != -1){
+                    line = br.readLine();
+                    sb = sb.append(line+"\n");
+                }
+            } catch (IOException e){
+                e.printStackTrace();
+            }
+            String allText = sb.toString();
+            System.out.println(allText);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
+
+
+
     }
 }

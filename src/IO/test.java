@@ -1,13 +1,16 @@
 package IO;
 
+import sun.text.normalizer.UTF16;
+
 import java.io.*;
 
 /**
  * Created by gavri on 16.01.2016.
  */
 public class test {
-    public static void main(String[] args) throws IOException {
-        File file = new File("menu.txt");
+    public static void main(String[] args) /*throws IOException */{
+
+        /*  File file = new File("menu.txt");
             System.out.println(file.exists());
         File copy = new File ("copy.txt");
             System.out.println(copy.exists());
@@ -42,5 +45,44 @@ public class test {
         String allText = sb.toString();
 
         System.out.println(allText);
+
+        */
+
+        File file = new File("C:\\development\\1.doc");
+        try {
+            FileInputStream is = new FileInputStream(file);
+            InputStreamReader isr = new InputStreamReader(is);
+            try {
+                OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream("copy.doc"),"UTF8");
+                try {
+                    int bite  = isr.read();
+
+                    while (bite != -1){
+                        bite  = isr.read();
+                        os.write(bite);
+                    }
+                    os.close();
+                    is.close();
+            } catch (UnsupportedEncodingException t){
+                    t.printStackTrace();
+                }
+
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+        } catch (FileNotFoundException n){
+            n.printStackTrace();
+        }
+
+
+
+
+
+
+
+
+
+
+
     }
 }

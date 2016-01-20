@@ -1,7 +1,11 @@
 package Library;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /*
 Написать программу позволяющую узнать следующую информацию:
@@ -72,7 +76,22 @@ public class Library implements Serializable {
         }
     }
 
-    public void showUserBooks(Reader reader) {
+    public void showUserBooks() throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter Rader Name");
+        String readerName = bf.readLine();
+        System.out.println("Please enter Rader age");
+        int readerAge = sc.nextInt();
+        Reader reader = null;
+        for (Reader readr: readers) {
+            if((readr.getName().equals(readerName)) & (readr.getAge() == readerAge)){
+                reader = readr;
+            }  else {
+                System.out.println("There is no that Reader in lib");
+                return;
+            }
+        }
         reader.showReaderBooks();
     }
 
@@ -98,5 +117,45 @@ public class Library implements Serializable {
                 System.out.println();
             }
         }
+    }
+
+    public boolean giveBook() throws IOException {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter Rader Name");
+        String readerName = sc.nextLine();
+        System.out.println("Please enter Rader age");
+        int readerAge = sc.nextInt();
+        System.out.println("Please enter Book name");
+        String bookTitle = sc.nextLine();
+
+        Reader reader = null;
+        for (Reader readr: readers) {
+            if((readr.getName().equals(readerName)) ){
+                reader = readr;
+            }  else {
+                System.out.println("There is no that Reader in lib");
+                return false;
+            }
+        }
+
+        Book someBook  = null;
+        for (Book book: books) {
+            if((book.getName().equals(bookTitle))){
+                someBook = book;
+            }  else {
+                System.out.println("There is no that Book in lib");
+                return false;
+            }
+        }
+
+        if (reader.isInBlackList()) {
+            return false;
+        } else if (!reader.isCanGetbook()) {
+            return false;
+        } else if (books.contains(someBook)&& someBook.isBookInLibarary()) {
+            reader.takeBook(someBook);
+            return true;
+        }
+        return false;
     }
 }
