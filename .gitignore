@@ -1,5 +1,4 @@
-.idea/
-out/
 *.iml
 *.md
-ACO10/
+.idea/
+out/
