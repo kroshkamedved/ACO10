@@ -1,6 +1,13 @@
 package IO;
 
+import com.sun.org.apache.xerces.internal.xs.datatypes.ByteList;
+import com.sun.xml.internal.ws.encoding.MtomCodec;
+
 import java.io.*;
+import java.nio.Buffer;
+import java.nio.ByteBuffer;
+import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -36,5 +43,45 @@ public class IOUtils {
             e.printStackTrace();
         }
         }
+
+    public static byte[] getToBytes (File file) throws FileNotFoundException {
+        InputStream is = new FileInputStream(file);
+        byte[] array = new byte[1024];
+
+
+        int count = -1;
+
+
+        try(ByteArrayOutputStream os = new ByteArrayOutputStream();) {
+            while ((count = is.read(array,0,array.length)) != -1){
+                    os.write(array,0,count);
+
+            }
+            return os.toByteArray();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
+
+    public static byte[] getToBytesWithoutByteArrayOS (File file) throws FileNotFoundException {
+        InputStream is = new FileInputStream(file);
+        byte[] array = null;
+        try {
+            byte[] ar = Files.readAllBytes(file.toPath());
+            array = ar;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+
+        return array;
+    }
+
+ }
+
+
+
+
 
