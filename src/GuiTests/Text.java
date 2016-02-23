@@ -1,7 +1,48 @@
 package GuiTests;
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 /**
  * Created by gavri on 11.02.2016.
  */
-public class Text {
+public class Text implements ActionListener {
+    JTextArea text;
+
+    public static void main(String[] args) {
+        Text gui = new Text();
+        gui.go();
+    }
+
+    public void go(){
+        JFrame frame = new JFrame();
+        JPanel panel  = new JPanel();
+
+        JButton button = new JButton("Just click it");
+        button.addActionListener(this);
+
+        text  = new JTextArea(10,20);
+        text.setLineWrap(true);
+
+        JScrollPane scroller = new JScrollPane(text);
+        scroller.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        scroller.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+
+        panel.add(scroller);
+
+        frame.getContentPane().add(BorderLayout.CENTER,panel);
+        frame.getContentPane().add(BorderLayout.SOUTH,button);
+
+        frame.setSize(300,500);
+        frame.setVisible(true);
+        frame.pack();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        text.append("button clicked \n");
+    }
 }
