@@ -7,13 +7,19 @@ import java.io.*;
  */
 public class MyScannerTest {
     public static void main(String[] args) throws FileNotFoundException {
-        MyScanner sc = new MyScanner();
 
         MyScanner scString = new MyScanner("This is my test MyScanner object");
 
-        Reader reader = new InputStreamReader(new FileInputStream("\\tmp\\try.txt"));
+        Reader reader = new InputStreamReader(new FileInputStream("src\\tmp\\try.txt"));
 
         MyScanner scReader = new MyScanner(reader);
+
+        String first = scString.next();
+        System.out.println(first);
+
+        String second = scReader.next();
+        System.out.println(second);
+
 
     }
 }

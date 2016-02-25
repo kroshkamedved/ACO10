@@ -7,16 +7,16 @@ import java.awt.event.ActionListener;
 /**
  * Created by gavri on 10.02.2016.
  */
-public class Clicker extends JFrame {
+public class clicker extends JFrame {
     private JButton reset, clickMe;
     private JLabel counter;
     private int click = 0;
 
     public static void main(String[] args) {
-        Clicker ck = new Clicker();
+        clicker ck = new clicker();
     }
 
-    public Clicker (){
+    public clicker(){
         this.setSize(300,100);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
