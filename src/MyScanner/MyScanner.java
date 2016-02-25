@@ -10,6 +10,8 @@ public class MyScanner {
 
     char[] data = null;
     char[] buffer = new char[1000];
+    int currentStartPosition;
+    int currentPosition;
 
 
     public MyScanner(Reader reader){
@@ -46,9 +48,29 @@ public class MyScanner {
     }
 
     public String next(){
-        String[] strArray = data.toString().split(" ");
-        String str = strArray[0];
-        return  str;
+        for (; currentPosition < data.length; currentPosition++){
+            if (data[currentPosition] == ' '|| data[currentPosition] == Character.LINE_SEPARATOR){
+                char[] tmpArray = new char[currentPosition-currentStartPosition];
+                System.arraycopy(data,currentStartPosition,tmpArray,0,currentPosition-currentStartPosition);
+                currentPosition++;
+                currentStartPosition = currentPosition;
+                return new String(tmpArray);
+            } else {
+
+            }
+        }
+        if (currentPosition == data.length){
+            char[] tmpArray = new char[currentPosition-currentStartPosition];
+            System.arraycopy(data,currentStartPosition,tmpArray,0,currentPosition-currentStartPosition);
+            currentPosition++;
+            currentStartPosition = currentPosition;
+            return new String(tmpArray);
+        }
+        return null;
+        //String dataString = new String(data);
+        //String[] strArray = dataString.split("\\s+");
+        //String str = strArray[0];
+        //return  str;
     }
 
 }

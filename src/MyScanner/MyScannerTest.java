@@ -20,6 +20,11 @@ public class MyScannerTest {
         String second = scReader.next();
         System.out.println(second);
 
+        System.out.println(scString.next());
+        System.out.println(scString.next());
+        System.out.println(scString.next());
+        System.out.println(scString.next());
+        System.out.println(scString.next());
 
     }
 }
