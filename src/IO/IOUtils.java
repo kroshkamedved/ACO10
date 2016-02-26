@@ -20,7 +20,7 @@ public class IOUtils {
     public static byte[] getToBytes(File file) throws FileNotFoundException {
         InputStream is = new FileInputStream(file);
         byte[] array = new byte[1024];
-        int count = -1;
+        int count;
         try (ByteArrayOutputStream os = new ByteArrayOutputStream();) {
             while ((count = is.read(array, 0, array.length)) != -1) {
                 os.write(array, 0, count);
@@ -34,11 +34,9 @@ public class IOUtils {
 
 
     public static byte[] getToBytesWithoutByteArrayOS(File file) throws FileNotFoundException {
-        InputStream is = new FileInputStream(file);
         byte[] array = null;
         try {
-            byte[] ar = Files.readAllBytes(file.toPath());
-            array = ar;
+            array = Files.readAllBytes(file.toPath());
         } catch (IOException e) {
             e.printStackTrace();
         }
